@@ -1,0 +1,52 @@
+
+
+{% include "store/base.html" %}
+
+{% block content %}
+
+<style>
+    body {
+        background-color: #f8f1f1;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <div class="card shadow-lg border-0">
+                <div class="card-body text-center p-5">
+
+                    <i class="fa fa-times-circle text-danger" style="font-size: 70px;"></i>
+
+                    <h2 class="mt-4 mb-3 text-danger">Payment Failed</h2>
+
+                    <p class="mb-4 text-secondary">
+                        Unfortunately, your payment could not be processed.  
+                        You may try again or choose a different payment method.
+                    </p>
+
+                    <a href="{% url 'checkout' %}" class="btn btn-danger btn-lg w-100 mb-3">
+                        Try Again
+                    </a>
+
+                    <a href="{% url 'store' %}" class="btn btn-secondary btn-lg w-100">
+                        Return to Store
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
