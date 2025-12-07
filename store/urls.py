@@ -17,6 +17,11 @@ urlpatterns = [
     
     path('search/<slug:category_slug>/',views.list_category,name='list-category'),
 
+    path('search/', views.search, name='search'),
+
+    path('search/<slug:category_slug>/sort/', views.sorted_category, name='sorted-category'),
+
+
 
 
 

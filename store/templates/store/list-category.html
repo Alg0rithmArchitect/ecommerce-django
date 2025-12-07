@@ -11,6 +11,19 @@
   <div class="album py-5 bg-light">
     <div class="container">
 
+      <!-- Sorting Dropdown -->
+<div class="d-flex justify-content-end mb-3">
+    <form method="GET" action="{% url 'sorted-category' category.slug %}">
+        <select name="sort" class="form-select" style="width: 200px;"
+                onchange="this.form.submit()">
+            <option value="">Sort by Price</option>
+            <option value="low_to_high" {% if request.GET.sort == 'low_to_high' %}selected{% endif %}>Low → High</option>
+            <option value="high_to_low" {% if request.GET.sort == 'high_to_low' %}selected{% endif %}>High → Low</option>
+        </select>
+    </form>
+</div>
+
+
       <div class="pb-3 h5"> {{category.name | capfirst}} </div>
 
 

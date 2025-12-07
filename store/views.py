@@ -35,3 +35,40 @@ def product_info(request, product_slug):
     context = {'product': product}
 
     return render(request, 'store/product-info.html', context)
+
+
+def search(request):
+    query = request.GET.get('q')
+
+    if query:
+        products = Product.objects.filter(title__icontains=query)
+    else:
+        products = Product.objects.none()
+
+    context = {
+        'query': query,
+        'products': products,
+    }
+
+    return render(request, 'store/search_results.html', context)
+
+
+def sorted_category(request, category_slug):
+    category = Category.objects.get(slug=category_slug)
+    products = Product.objects.filter(category=category)
+
+    sort_option = request.GET.get('sort')
+
+    if sort_option == "low_to_high":
+        products = products.order_by('price')
+    elif sort_option == "high_to_low":
+        products = products.order_by('-price')
+
+    context = {
+        'category': category,
+        'products': products,
+    }
+    return render(request, 'store/list-category.html', context)
+
+
+
