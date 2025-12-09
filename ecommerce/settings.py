@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -157,7 +157,9 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['web-app-v894.onrender.com','*']
+
+CSRF_TRUSTED_ORIGINS = ['https://web-app-v894.onrender.com']
 
 
 
